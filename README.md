@@ -37,5 +37,5 @@ Send a picture:
 
 Send a video:
 ```
-./telegram-cl.py video --token 'YOUR API TOKEN' --recipient RECIPIENT_ID --path /path/to/image.png
+./telegram-cl.py video --token 'YOUR API TOKEN' --recipient RECIPIENT_ID --path /path/to/video.avi
 ```
