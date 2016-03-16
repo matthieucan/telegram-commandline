@@ -4,6 +4,8 @@ Telegram Bot Commandline
 This is a small python executable to send messages, pictures and
 videos to a chat from the command line.
 
+It uses the great Python library [telepot](https://github.com/nickoala/telepot).
+
 Installation
 ------------
 
