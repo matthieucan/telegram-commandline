@@ -1,7 +1,9 @@
 #!/usr/bin/env python
 
-import telepot
+import signal
 import argparse
+
+import telepot
 
 # class Timeout is stolen without shame from
 # http://stackoverflow.com/questions/2281850/timeout-function-if-it-takes-too-long-to-finish
@@ -11,7 +13,7 @@ class Timeout:
         self.seconds = seconds
         self.error_message = error_message
     def handle_timeout(self, signum, frame):
-        raise TimeoutError(self.error_message)
+        raise Exception(self.error_message)
     def __enter__(self):
         signal.signal(signal.SIGALRM, self.handle_timeout)
         signal.alarm(self.seconds)
@@ -75,7 +77,7 @@ def main():
                        type=int)
 
     args = parser.parse_args()
-    with Timeout(seconds=5):
+    with Timeout(seconds=10):
         args.func(args)
 
 if __name__ == "__main__":
